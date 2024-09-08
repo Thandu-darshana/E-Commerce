@@ -1,9 +1,7 @@
 package com.tharindu.Ecom_Project.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,11 +19,19 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private String desc;
+    private String description;
     private String brand;
     private BigDecimal price;
     private String category;
-    private int quantity;
-    private boolean avaliability;
-    private Date releasedDate;
+
+    private int stockQuantity;
+    private boolean productAvaliable;
+//    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-mm-yyyy")
+    private Date releaseDate;
+
+    private String imageName;
+    private String imageType;
+
+    @Lob
+    private byte[] imageDate;
 }
