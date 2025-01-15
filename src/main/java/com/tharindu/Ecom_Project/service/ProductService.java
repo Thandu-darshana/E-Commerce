@@ -16,6 +16,7 @@ public class ProductService {
     private ProductRepo repo;
 
     public List<Product> getAllProducts(){
+
         return repo.findAll();
     }
 
@@ -41,4 +42,5 @@ public class ProductService {
     public void deleteProduct(int id) {
         repo.deleteById(id);
     }
+    
 }
